@@ -1,59 +1,62 @@
-# MongoDB Fundamentals - Week 1
+# PLP Bookstore MongoDB Assignment
 
-## Setup Instructions
+![MongoDB Logo](https://img.icons8.com/color/48/mongodb.png)
 
-Before you begin this assignment, please make sure you have the following installed:
+## 📋 Submission Overview
+**Submission Date**: 2025-12-16  
+**Database Version**: MongoDB Community Edition 6.0+  
+**Autograding Status**: [Pending]  
+**Instructor Review**: [Awaiting]
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
+## 🚀 Quick Start Guide
 
-### Node.js Package Setup
+### Prerequisites
+- MongoDB Community Edition [installed](https://www.mongodb.com/docs/manual/installation/)
+- Node.js v18+ (for script execution)
+- MongoDB Compass (recommended for visualization)
 
-Once you have Node.js installed, run the following commands in your assignment directory:
+### Setup Instructions
+1. **Start MongoDB Service**:
+   ```bash
+   sudo systemctl start mongod  # Linux/Mac
+   net start MongoDB            # Windows Admin
+   ```
 
-```bash
-# Initialize a package.json file
-npm init -y
+2. **Clone Repository**:
 
-# Install the MongoDB Node.js driver
-npm install mongodb
+3. **Populate Database**:
+   ```bash
+   node insert_books.js
+   ```
+
+4. **Execute Queries**:
+   ```bash
+   mongosh "mongodb://localhost:27017" --file queries.js
+   ```
+
+## 📂 Repository Structure
+```
+.
+├── insert_books.js     # Data population script (12 sample books)
+├── queries.js          # Complete MongoDB operations (CRUD, Aggregation, Indexing)
+├── README.md           # This documentation
+└── assets/
+    └── screenshot.png  # DB visualization proof (see example below)
 ```
 
-## Assignment Overview
+## 🔍 Expected Outcomes
+| Task | Verification Method | Expected Result |
+|------|---------------------|-----------------|
+| 1. Setup | `show dbs` in mongosh | `plp_bookstore` in database list |
+| 2. CRUD | Query success messages | 10+ books in collection |
+| 3. Advanced Queries | Output sorting/pagination | Filtered results in JSON format |
+| 4. Aggregation | Console output | Calculated averages/author stats |
+| 5. Indexing | `db.books.getIndexes()` | title_index and author_year_index present |
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
-
-## Submission
-
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
-
-## Getting Started
-
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
-
-## Files Included
-
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
-
-## Requirements
-
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
-
-## Resources
-
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+## 📸 Screenshot Example
+![MongoDB Compass View](./assets/ss1%20(1).png)
+![MongoDB Compass View](./assets/ss1%20(2).png)
+*Sample view showing:*
+- `books` collection with document preview
+- Indexes tab displaying created indexes
+- Collection stats showing 10+ documents
